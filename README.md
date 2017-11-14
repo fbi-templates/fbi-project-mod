@@ -4,7 +4,7 @@ Node services or node module.
 ## Start
 
 ```bash
-$ fbi init https://github.com/fbi-templates/fbi-project-vue.git new-project
+$ fbi init https://github.com/fbi-templates/fbi-project-mod.git new-project
 
 $ npm i --prod   
            
