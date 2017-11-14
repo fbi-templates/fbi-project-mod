@@ -1,3 +1,6 @@
+# fbi
+server-dev/
+
 # Logs
 logs
 *.log
@@ -35,6 +38,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+.deps
 
 # Typescript v1 declaration files
 typings/
