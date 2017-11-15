@@ -1,19 +1,17 @@
-module.exports = (require, ctx) => {
-  return {
-    transforms: {
-      arrow: false,
-      classes: false,
-      defaultParameter: false,
-      destructuring: false,
-      forOf: false,
-      generator: false,
-      letConst: false,
-      parameterDestructuring: false,
-      spreadRest: false,
-      templateString: false
-    },
-    objectAssign: 'Object.assign'
-  }
+module.exports = {
+  transforms: {
+    arrow: false,
+    classes: false,
+    defaultParameter: false,
+    destructuring: false,
+    forOf: false,
+    generator: false,
+    letConst: false,
+    parameterDestructuring: false,
+    spreadRest: false,
+    templateString: false
+  },
+  objectAssign: 'Object.assign'
 }
 
 /*

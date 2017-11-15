@@ -1,8 +1,4 @@
 module.exports = {
-  npm: {
-    alias: 'npm',
-    options: ''
-  },
   alias: {
     b: 'build',
     s: 'serve'

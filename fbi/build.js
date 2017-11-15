@@ -1,14 +1,27 @@
-if (ctx.taskParams && ctx.taskParams.length) {
-  ctx.options.dist += '-' + ctx.taskParams[0] || 'dev'
-} else {
-  ctx.options.dist += '-dev'
-}
+ctx.env = taskParams.t ? 'test' : taskParams.p ? 'prod' : 'dev'
+ctx.options.dist += '-' + ctx.env
+ctx.logger.log('Env:', ctx.env)
 
-const copy = require('./config/copy')(require, ctx)
-const clean = require('./config/clean')(require, ctx)
-const complier = require('./config/complier')(require, ctx)
+const copy = require('./helpers/copy')
+const clean = require('./helpers/clean')
+const complier = require('./helpers/complier')
 
 process.env.NODE_ENV = 'production'
-clean()
-complier()
-copy()
+
+module.exports = async () => {
+  try {
+    ctx.logger.log('`clean` start')
+    await clean(ctx.options.dist)
+    ctx.logger.log('`clean` done')
+
+    ctx.logger.log('`complier` start')
+    await complier()
+    ctx.logger.log('`complier` done')
+
+    ctx.logger.log('`copy` start')
+    await copy()
+    ctx.logger.log('`copy` done')
+  } catch (err) {
+    ctx.logger.error(err)
+  }
+}

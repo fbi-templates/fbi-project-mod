@@ -1,37 +1,31 @@
-module.exports = (require, ctx) => {
-  const path = require('path')
-  const buble = require('rollup-plugin-buble')
-  const async = require('rollup-plugin-async')
-  const json = require('rollup-plugin-json')
-  const eslint = require('rollup-plugin-eslint')
-  const replace = require('rollup-plugin-replace')
-  const eslintConfig = require('./config/eslint.config')(require, ctx)
-  const bubleConfig = require('./config/buble.config')(require, ctx)
+const path = require('path')
+const buble = require('rollup-plugin-buble')
+const async = require('rollup-plugin-async')
+const json = require('rollup-plugin-json')
+const eslint = require('rollup-plugin-eslint')
+const replace = require('rollup-plugin-replace')
+const eslintConfig = require('./eslint.config')
+const bubleConfig = require('./buble.config')
 
-  const Env = ctx.taskParams ? ctx.taskParams[0] : 'dev'
+function noop() {}
 
-  ctx.logger.log(`Env: ${Env}`)
-
-  function noop() {}
-
-  const config = {
-    plugins: [
-      replace({
-        FBI_ENV: Env
-      }),
-      eslint(eslintConfig),
-      json()
-    ],
-    onwarn: function() {}
-  }
-
-  if (!ctx.options.rollup.leaveAsyncAlone) {
-    config.plugins.push(async())
-    config.plugins.push(buble(bubleConfig))
-  }
-
-  return config
+const config = {
+  plugins: [
+    replace({
+      FBI_ENV: ctx.env
+    }),
+    eslint(eslintConfig),
+    json()
+  ],
+  onwarn: function() {}
 }
+
+if (!ctx.options.rollup.leaveAsyncAlone) {
+  config.plugins.push(async())
+  config.plugins.push(buble(bubleConfig))
+}
+
+module.exports = config
 
 /* options:
 
