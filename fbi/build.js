@@ -10,17 +10,17 @@ process.env.NODE_ENV = 'production'
 
 module.exports = async () => {
   try {
-    ctx.logger.log('`clean` start')
+    ctx.logger.log('`clean` start...')
     await clean(ctx.options.dist)
-    ctx.logger.log('`clean` done')
+    ctx.logger.log('`clean` done!')
 
-    ctx.logger.log('`complier` start')
+    ctx.logger.log('`complier` start...')
     await complier()
-    ctx.logger.log('`complier` done')
+    ctx.logger.log('`complier` done!')
 
-    ctx.logger.log('`copy` start')
+    ctx.logger.log('`copy` start...')
     await copy()
-    ctx.logger.log('`copy` done')
+    ctx.logger.log('`copy` done!')
   } catch (err) {
     ctx.logger.error(err)
   }
