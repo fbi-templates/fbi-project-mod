@@ -1,8 +1,4 @@
 module.exports = {
-  alias: {
-    b: 'build',
-    s: 'serve'
-  },
   src: 'server/',
   dist: './server', // 生成目录路径
   rollup: {

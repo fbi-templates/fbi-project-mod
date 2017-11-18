@@ -40,5 +40,17 @@
   },
   "license": "MIT",
   "repository": {},
-  "keywords": []
+  "keywords": [],
+  "fbi": {
+    "tasks": {
+      "build": {
+        "alias": "b",
+        "desc": "Build the project."
+      },
+      "serve": {
+        "alias": "s",
+        "des": "Compile the code and start the development server."
+      }
+    }
+  }
 }
