@@ -11,7 +11,10 @@
   "scripts": {
     "dev": "pm2 start server-dev/configs/pm2-dev.json",
     "test": "pm2 start server-test/configs/pm2-test.json",
-    "prod": "pm2 start server-prod/configs/pm2-prod.json"
+    "prod": "pm2 start server-prod/configs/pm2-prod.json",
+    "publish-patch": "npm test && npm version patch && git push && git push --tags && npm publish",
+    "publish-minor": "npm test && npm version minor && git push && git push --tags && npm publish",
+    "publish-major": "npm test && npm version major && git push && git push --tags && npm publish"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
@@ -49,7 +52,7 @@
       },
       "serve": {
         "alias": "s",
-        "des": "Compile the code and start the development server."
+        "desc": "Compile the code and start the development server."
       }
     }
   }
