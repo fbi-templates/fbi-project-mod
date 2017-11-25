@@ -1,6 +1,7 @@
 # fbi
 server-*/
 .DS_Store
+.deps
 
 # Logs
 logs

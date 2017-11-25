@@ -1,6 +1,9 @@
+const taskParams = ctx.task.getParams('build')
 ctx.env = taskParams.t ? 'test' : taskParams.p ? 'prod' : 'dev'
 ctx.options.dist += '-' + ctx.env
-ctx.logger.log('Env:', ctx.env)
+
+ctx.logger.info('Env :', ctx.env)
+ctx.logger.info(`Root: ${ctx.options.dist}`)
 
 const copy = require('./helpers/copy')
 const clean = require('./helpers/clean')

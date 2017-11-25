@@ -45,6 +45,9 @@
   "repository": {},
   "keywords": [],
   "fbi": {
+    "template": {
+      "name": "fbi-project-mod"
+    },
     "tasks": {
       "build": {
         "alias": "b",
