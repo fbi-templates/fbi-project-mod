@@ -60,9 +60,16 @@ $ npm run prod
 ```
 ## More
 - [Official templates](https://github.com/fbi-templates)
-- [fbi full documentation](https://neikvon.gitbooks.io/fbi/content/)
+- [fbi documentation](https://neikvon.gitbooks.io/fbi/content/)
+- Migrate from [fbi-template-mod](https://github.com/neikvon/fbi-template-mod)? Check [this](https://github.com/fbi-templates/fbi-task-migrate) out.
 
 ## Changelog
+
+- 2017.12.07  (`2.0.2`)
+1. update readme: add migration link
+
+- 2017.12.07  (`2.0.1`)
+1. fix readme typo
 
 - 2017.12.07  (`2.0.0`)
 1. Improvements: build performance, use of configuration
