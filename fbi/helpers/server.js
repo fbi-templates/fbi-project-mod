@@ -1,31 +1,30 @@
 const path = require('path')
 const nodemon = require('nodemon')
 
-module.exports = () => {
+module.exports = (options, dist, logger) => {
   return new Promise((resolve, reject) => {
-    nodemon({
-      script: path.join(ctx.options.dist, 'index.js'),
-      ext: 'js json',
-      watch: false, // [ ctx.options.dist ],
-      verbose: true, // for debug purpose only
-      ignore: ['.git', 'node_modules', 'server', 'test', 'fbi'],
-      env: {
-        NODE_ENV: 'development'
-      }
-    })
+    options.server.ignore = options.server.ignore || []
+    options.server.script = path.join(dist, options.server.script)
+    options.server.ignore.push(options.src)
+
+    nodemon(options.server)
 
     nodemon
       .on('start', () => {
-        resolve('Service started.')
+        logger.warn('Service started.')
+        resolve()
       })
       .on('restart', files => {
-        resolve(`Service restarted.`)
+        logger.warn('Service restarted.')
+        resolve()
       })
       .on('quit', () => {
-        reject('Service quit.')
+        logger.warn('Service quit.')
+        reject()
       })
       .on('crash', () => {
-        reject('Service crashed for some reason.')
+        logger.error('Service crashed for some reason.')
+        reject()
       })
   })
 }

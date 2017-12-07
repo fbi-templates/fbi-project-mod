@@ -1,5 +1,5 @@
 # fbi
-server-*/
+/dist-*/
 .DS_Store
 .deps
 

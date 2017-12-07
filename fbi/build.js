@@ -1,30 +1,38 @@
-const taskParams = ctx.task.getParams('build')
-ctx.env = taskParams.t ? 'test' : taskParams.p ? 'prod' : 'dev'
-ctx.options.dist += '-' + ctx.env
-
-ctx.logger.info('Env :', ctx.env)
-ctx.logger.info(`Root: ${ctx.options.dist}`)
-
+const logger = require('./helpers/logger')
 const copy = require('./helpers/copy')
 const clean = require('./helpers/clean')
-const complier = require('./helpers/complier')
+const getEnv = require('./helpers/get-env')
+const options = require('./options')
 
+process.env.BUILD_ENV = getEnv('build') || 'prod'
+process.env.BUILD_DIST = `${options.dist}-${process.env.BUILD_ENV}`
+logger.log('Destination:', process.env.BUILD_DIST)
 process.env.NODE_ENV = 'production'
 
-module.exports = async () => {
+const complie = require('./helpers/complie')
+
+async function build() {
   try {
-    ctx.logger.log('`clean` start...')
-    await clean(ctx.options.dist)
-    ctx.logger.log('`clean` done!')
+    logger.log('Start cleaning up...')
+    await clean(process.env.BUILD_DIST)
+    logger.info('Clean done!')
 
-    ctx.logger.log('`complier` start...')
-    await complier()
-    ctx.logger.log('`complier` done!')
+    logger.log('Start compiling...')
+    await complie(options)
+    logger.info('Complie done!')
 
-    ctx.logger.log('`copy` start...')
-    await copy()
-    ctx.logger.log('`copy` done!')
+    logger.log('Start copying...')
+    await copy(options.src, process.env.BUILD_DIST)
+    logger.info('Copy done!')
   } catch (err) {
-    ctx.logger.error(err)
+    logger.error(err)
   }
+}
+
+try {
+  if (ctx) {
+    module.exports = build
+  }
+} catch (err) {
+  build()
 }

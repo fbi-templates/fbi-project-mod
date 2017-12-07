@@ -1,49 +1,54 @@
 {
-  "name": "mod",
-  "version": "3.1.0",
+  "name": "fbi-project-mod",
+  "version": "1.0.0",
   "author": "fbi",
   "description": "Node service, npm module template.",
   "engines": {
     "node": ">=6.9.1",
     "npm": ">= 3.10.0"
   },
-  "main": "dst/index.js",
   "scripts": {
-    "dev": "pm2 start server-dev/configs/pm2-dev.json",
-    "test": "pm2 start server-test/configs/pm2-test.json",
-    "prod": "pm2 start server-prod/configs/pm2-prod.json",
+    "start": "npm run serve",
+    "serve": "node fbi/serve.js",
+    "serve:watch": "node fbi/serve.js -w",
+    "build": "node fbi/build.js",
+    "build:test": "node fbi/build.js -t",
+    "dev": "pm2 start dist-dev/configs/pm2-dev.json",
+    "test": "pm2 start dist-test/configs/pm2-test.json",
+    "prod": "pm2 start dist-prod/configs/pm2-prod.json",
     "release-patch": "npm version patch && git push && git push --tags",
     "release-minor": "npm version minor && git push && git push --tags",
     "release-major": "npm version major && git push && git push --tags"
   },
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "koa": "^2.3.0",
+    "bluebird": "^3.5.1",
+    "koa": "^2.4.1",
     "koa-logger": "^3.1.0",
-    "koa-router": "^7.2.1",
+    "koa-router": "^7.3.0",
     "require-directory": "^2.1.1",
     "source-map-support": "^0.5.0"
   },
   "devDependencies": {
+    "chokidar": "1.7.0",
     "eslint-config-airbnb-base": "12.1.0",
+    "eslint-friendly-formatter": "3.0.0",
     "eslint-plugin-import": "2.8.0",
     "eslint-plugin-promise": "3.6.0",
-    "fs-extra": "4.0.2",
+    "fs-extra": "4.0.3",
     "glob": "7.1.2",
     "koa-onerror": "4.0.0",
-    "nodemon": "1.12.1",
+    "nodemon": "1.12.5",
     "rimraf": "2.6.2",
-    "rollup": "0.51.5",
+    "rollup": "0.52.1",
     "rollup-plugin-async": "1.2.0",
-    "rollup-plugin-buble": "0.17.0",
+    "rollup-plugin-buble": "0.18.0",
     "rollup-plugin-eslint": "4.0.0",
     "rollup-plugin-json": "2.3.0",
-    "rollup-plugin-replace": "2.0.0",
-    "watch": "1.0.2"
+    "rollup-plugin-replace": "2.0.0"
   },
   "license": "MIT",
   "repository": {},
-  "keywords": [],
+  "keywords": ["fbi", "project", "node", "service", "module", "template"],
   "fbi": {
     "template": {
       "name": "fbi-project-mod"
@@ -51,7 +56,7 @@
     "tasks": {
       "build": {
         "alias": "b",
-        "desc": "Build the project."
+        "desc": "Build the project for the specified environment."
       },
       "serve": {
         "alias": "s",

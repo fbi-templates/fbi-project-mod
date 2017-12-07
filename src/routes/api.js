@@ -4,7 +4,6 @@ import requireDirectory from 'require-directory'
 const ctrls = requireDirectory(module, '../controllers')
 
 export default class ApiRouter {
-
   constructor() {
     this.router = new Router({
       prefix: '/api'
@@ -15,5 +14,4 @@ export default class ApiRouter {
   onRoutes() {
     Object.keys(ctrls).map(name => ctrls[name](this.router))
   }
-
 }

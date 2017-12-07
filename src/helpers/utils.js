@@ -1,5 +1,5 @@
 /**
- * 深合并
+ * Deep merge
  *
  * @export
  * @param {object} targets
