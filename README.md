@@ -49,7 +49,10 @@ $ fbi <task> [params]
   - `fbi b -t` or `fbi b --t` or `fbi b -t=true` or `fbi b --test=true`
   - `fbi b -p` or `fbi b --p` or `fbi b -p=true` or `fbi b --prod=true`
 
-<!-- ## Peel off from fbi -->
+## Test
+```bash
+$ curl -i http://localhost:3000/api/demo
+```
 ## Startup project
 ```bash
 $ npm run dev
@@ -64,6 +67,9 @@ $ npm run prod
 - Migrate from [fbi-template-mod](https://github.com/neikvon/fbi-template-mod)? Check [this](https://github.com/fbi-templates/fbi-task-migrate) out.
 
 ## Changelog
+
+- 2017.12.07  (`2.0.3`)
+1. update readme: add test description
 
 - 2017.12.07  (`2.0.2`)
 1. update readme: add migration link
