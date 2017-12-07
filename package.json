@@ -1,6 +1,6 @@
 {
   "name": "fbi-project-mod",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "fbi",
   "description": "Node service, npm module template.",
   "engines": {
@@ -48,7 +48,14 @@
   },
   "license": "MIT",
   "repository": {},
-  "keywords": ["fbi", "project", "node", "service", "module", "template"],
+  "keywords": [
+    "fbi",
+    "project",
+    "node",
+    "service",
+    "module",
+    "template"
+  ],
   "fbi": {
     "template": {
       "name": "fbi-project-mod"
