@@ -19,8 +19,8 @@ or
 
 ```bash
 $ fbi add https://github.com/fbi-templates/fbi-project-mod.git
-$ cd path/to/workspace
-$ fbi init vue vue-project
+$ cd path/to/workspace
+$ fbi init mod mod-project
 $ fbi ls 
 $ fbi <task> [params]
 ```
@@ -64,5 +64,5 @@ $ npm run prod
 
 ## Changelog
 
-- 2017.12.07  (Version: `2.0.0`)
+- 2017.12.07  (`2.0.0`)
 1. Improvements: build performance, use of configuration
