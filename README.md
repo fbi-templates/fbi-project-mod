@@ -77,7 +77,13 @@ $ npm run prod
 - [fbi documentation](https://neikvon.gitbooks.io/fbi/content/)
 - Migrate from [fbi-template-mod](https://github.com/neikvon/fbi-template-mod)? Check [this](https://github.com/fbi-templates/fbi-task-migrate) out.
 
+## License
+[MIT](https://opensource.org/licenses/MIT)
+
 ## Changelog
+
+- **2.0.5** (2017.12.09)
+  - Add `.editorconfig`
 
 - **2.0.0** (2017.12.07)
   - Improvements: build performance, use of configuration

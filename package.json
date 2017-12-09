@@ -1,7 +1,6 @@
 {
   "name": "fbi-project-mod",
   "version": "2.0.4",
-  "author": "fbi",
   "description": "Node service, npm module template.",
   "engines": {
     "node": ">=6.9.1",
@@ -46,16 +45,28 @@
     "rollup-plugin-json": "2.3.0",
     "rollup-plugin-replace": "2.0.0"
   },
-  "license": "MIT",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbi-templates/fbi-project-mod.git"
+  },
   "keywords": [
+    "nodejs",
+    "back-end",
+    "node-service",
+    "npm-module",
+    "koajs",
+    "template",
+    "fbi-project",
     "fbi",
-    "project",
-    "node",
-    "service",
-    "module",
-    "template"
+    "api-rest",
+    "api-service"
   ],
+  "author": "neikvon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fbi-templates/fbi-project-mod/issues"
+  },
+  "homepage": "https://github.com/fbi-templates/fbi-project-mod#readme",
   "fbi": {
     "template": {
       "name": "fbi-project-mod"
