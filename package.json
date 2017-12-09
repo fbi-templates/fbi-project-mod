@@ -1,6 +1,6 @@
 {
   "name": "fbi-project-mod",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Node service, npm module template.",
   "engines": {
     "node": ">=6.9.1",
