@@ -123,7 +123,7 @@ check out [fbi-task-pack](https://github.com/fbi-templates/fbi-task-pack)
 
 ## Changelog
 
-- **3.0.0** (2018.07.10)
+- **4.0.0** (2018.07.10)
 
   - Refactoring compilation scheme
 
