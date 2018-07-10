@@ -5,7 +5,9 @@ module.exports = name => {
     if (taskParams) {
       return taskParams.t || taskParams.test
         ? 'test'
-        : taskParams.p || taskParams.prod ? 'prod' : def
+        : taskParams.p || taskParams.prod
+            ? 'prod'
+            : taskParams.d || taskParams.dev ? 'dev' : def
     } else {
       return ''
     }

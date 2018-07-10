@@ -1,6 +1,7 @@
 const path = require('path')
 const nodemon = require('nodemon')
 
+// https://github.com/remy/nodemon
 module.exports = (options, dist, logger) => {
   return new Promise((resolve, reject) => {
     options.server.ignore = options.server.ignore || []

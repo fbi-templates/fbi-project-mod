@@ -1,13 +1,12 @@
 import Koa from 'koa'
-import Promise from 'bluebird'
 import configs from './configs'
 import errorHandler from './middlewares/errorHandler'
 import logger from 'koa-logger'
 import routes from './routes/index'
 
-global.Promise = Promise
 const app = new Koa()
 
+// Log & Error hander
 app.use(logger())
 app.use(errorHandler())
 
@@ -18,8 +17,9 @@ app.use(router.routes()).use(
   })
 )
 
+// Listen
 const port = configs.server.port || 3000
-app.listen(port, async err => {
+app.listen(port, err => {
   if (err) {
     throw err
   }

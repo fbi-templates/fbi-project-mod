@@ -30,5 +30,7 @@ module.exports = (options, dist, cb, logger) => {
       cb(null, null, true)
     })
     .on('error', error => logger.log(`Watcher error: ${error}`))
-    .on('ready', () => logger.log('Initial scan complete. Ready for changes...'))
+    .on('ready', () =>
+      logger.log('Initial scan complete. Ready for changes...')
+    )
 }

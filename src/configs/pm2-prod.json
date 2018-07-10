@@ -2,7 +2,7 @@
   "apps": [{
     "name": "app",
     "cwd": "./",
-    "script": "server-prod/index.js",
+    "script": "index.js",
     "watch": false,
     "max_memory_restart": "1G",
     "exec_mode": "folk",

@@ -4,7 +4,7 @@ module.exports = {
 
   data: {
     XXX: 'xxx',
-    FBI_ENV: '' // Used in `server/configs.js`
+    FBI_ENV: '' // Used in `src/configs.js`
   },
 
   // Config for nodemon
@@ -23,20 +23,14 @@ module.exports = {
 
   // Docs: https://rollupjs.org/#rollup-rollup
   rollup: {
-    input: {
-      input: '',
-      plugins: {
-        // https://github.com/rollup/rollup-plugin-json#usage
-        json: {}
-      }
-    },
-    output: {
-      file: '',
-      format: 'cjs', // 'amd', 'cjs', 'es', 'iife', 'umd'
+    inputOptions: {},
+    outputOptions: {
       sourcemap: true,
-      banner: `require('source-map-support').install();`
+      banner: ''
     },
-    leaveAsyncAlone: true // compile `async await`: true => no; false => yes
+    leaveAsyncAlone: true, // compile `async await`: true => no; false => yes
+    // docs: https://github.com/fabiosantoscode/terser#minify-options
+    uglify: false // false or an object
   },
 
   // Docs: https://buble.surge.sh/guide/#options
@@ -59,45 +53,28 @@ module.exports = {
 
   // ESlint config
   eslint: {
-    status: 'on', // `on`: turn on; others: turn off
+    enable: true,
     options: {
-      // code style: https://github.com/airbnb/javascript
-      // Docs: http://eslint.org/docs/user-guide/configuring
-      // Plugin Docs: https://github.com/TrySound/rollup-plugin-eslint
-      extends: 'airbnb-base',
-      env: {
-        node: true
-      },
-      include: [],
-      exclude: [],
-      throwOnError: false,
-      throwOnWarning: false,
-      parserOptions: {
-        ecmaVersion: 8,
-        sourceType: 'module',
-        ecmaFeatures: {
-          experimentalObjectRestSpread: true
-        }
-      },
+      // http://eslint.org/docs/user-guide/configuring
       rules: {
+        // rules docs: https://standardjs.com/rules.html
         semi: ['error', 'never'],
-        indent: [
-          'error',
-          2,
-          {
-            SwitchCase: 1
-          }
-        ],
-        'linebreak-style': 0,
-        quotes: ['error', 'single'],
-        'arrow-parens': [2, 'as-needed'],
-        'space-before-function-paren': 0,
-        'one-var': 0,
-        'comma-dangle': 0,
-        'no-console': [0],
-        'no-param-reassign': [0], // https://github.com/airbnb/javascript#functions--mutate-params
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+        indent: ['error', 2]
       }
+      // fix: true,
+      // emitError: true,
+      // emitWarning: true
     }
+  },
+
+  // file or directories to copy (Destination: 'dist')
+  copy: {
+    'package.json': true,
+    node_modules: false
+  },
+
+  // https://github.com/rollup/rollup-plugin-alias
+  alias: {
+    services: './services'
   }
 }

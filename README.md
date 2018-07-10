@@ -1,50 +1,74 @@
 # fbi-project-mod
-Node services or node module.
+
+Node service or application template base on Koa 2.
 
 > This is a fbi project template. If you haven't installed [fbi](https://github.com/AlloyTeam/fbi) yet, use the following command to install.
 >
 > `$ npm i -g fbi` or `yarn global add fbi`
+
 ## Requirements
+
 - `fbi v3.0+`
 - `node v7.6+`
 
+## Features
+
+- ESLint
+- ES modules
+- Environment data config
+- Local development server using [nodemon](https://github.com/remy/nodemon)
+- Debug in VSCode
+
 ## Usage
+
+**Add template**
+
+```bash
+$ fbi add https://github.com/fbi-templates/fbi-project-mod.git
+```
 
 **Create a project**
 
 ```bash
-$ cd path/to/workspace
-$ fbi init https://github.com/fbi-templates/fbi-project-mod.git new-project  
-```
-
-or
-
-```bash
-$ fbi add https://github.com/fbi-templates/fbi-project-mod.git
 $ cd path/to/empty-folder
-$ fbi init mod
+$ fbi init -o mod
+
+# or
+$ fbi init -o mod my-app
 ```
 
 **Show available tasks**
+
 ```bash
 $ fbi ls
 ```
 
 **Run a task**
+
 ```bash
 $ fbi <task> [params]
+```
+
+**Update template**
+
+```bash
+$ fbi up mod
 ```
 
 ## Tasks
 
 ### `serve`
+
 - Description: Compile and start development server.
-- Params: none
+- Params:
+  - `d` `{Boolean}` 'watch only' mode.
 - Alias: `s`
 - Examples:
   - `fbi s`
+  - `fbi s -d`
 
 ### `build`
+
 - Description: Build the project for the specified environment.
 - Params:
   - `p/prod` `{Boolean}` (default) Production environment.
@@ -52,37 +76,59 @@ $ fbi <task> [params]
 - Alias: `b`
 - Examples:
   - `fbi b -t`
-  - `fbi b --t`
-  - `fbi b -t=true`
-  - `fbi b --test=true`
   - `fbi b -p`
-  - `fbi b --p`
-  - `fbi b -p=true`
-  - `fbi b --prod=true`
 
 ## Test
+
 ```bash
 $ curl -i http://localhost:3000/api/demo
 ```
-## Startup project
+
+## Debug in VSCode
+
 ```bash
-$ npm run dev
-# or
-$ npm run test
-# or
-$ npm run prod
+# steps:
+
+# 1. start dev server in `watchOnly` mode
+$ fbi s -d
+
+# 2. make sure you have configured `.vscode/launch.json`
+
+# 3. start debug server: Press `F5` in VSCode (support breakpoints in `src`)
 ```
+
+> [VSCode: Launch configurations](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
+>
+> [VSCode: Debug actions](https://code.visualstudio.com/docs/editor/debugging#_debug-actions)
+
+## Startup project
+
+```bash
+$ npm start
+```
+
+## Need file packaging?
+check out [fbi-task-pack](https://github.com/fbi-templates/fbi-task-pack)
+
+
 ## More
+
 - [Official templates](https://github.com/fbi-templates)
 - [fbi documentation](https://neikvon.gitbooks.io/fbi/content/)
 - Migrate from [fbi-template-mod](https://github.com/neikvon/fbi-template-mod)? Check [this](https://github.com/fbi-templates/fbi-task-migrate) out.
 
 ## License
+
 [MIT](https://opensource.org/licenses/MIT)
 
 ## Changelog
 
+- **3.0.0** (2018.07.10)
+
+  - Refactoring compilation scheme
+
 - **2.0.5** (2017.12.09)
+
   - Add `.editorconfig`
 
 - **2.0.0** (2017.12.07)
