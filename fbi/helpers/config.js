@@ -80,14 +80,14 @@ async function generateConfig (opts, files) {
 
   let entryFiles = files
     ? Array.isArray(files) ? files : [files]
-    : await globby(path.join(process.cwd(), opts.src, '**/*.js'))
+    : await globby(path.join(ctx.cwd, opts.src, '**/*.js'))
 
   return entryFiles.map(entry => {
     const distFile = path.join(
       process.env.BUILD_DIST || 'dist',
-      entry.replace(process.cwd(), '').replace(opts.src, '')
+      entry.replace(ctx.cwd, '').replace(opts.src, '')
     )
-    const entryRelativePath = entry.replace(process.cwd(), '')
+    const entryRelativePath = entry.replace(ctx.cwd, '')
     return {
       ...inputOptions,
       input: entry,

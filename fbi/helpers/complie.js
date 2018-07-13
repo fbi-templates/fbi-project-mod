@@ -10,7 +10,7 @@ async function complier (configs) {
       await bundle.write(config.output)
       logger.log(
         'compile:',
-        config.input.replace(process.cwd() + '/', ''),
+        config.input.replace(ctx.cwd + '/', ''),
         '-->',
         config.output.file
       )

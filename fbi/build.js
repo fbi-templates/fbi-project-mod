@@ -4,6 +4,7 @@ const clean = require('./helpers/clean')
 const getEnv = require('./helpers/env')
 const options = ctx ? ctx.options : require('./options')
 
+ctx.cwd = process.cwd().replace(/\\/g, '/')
 process.env.BUILD_ENV = getEnv('build') || 'prod'
 process.env.BUILD_DIST = `${options.dist}`
 logger.log('Environment:', process.env.BUILD_ENV)

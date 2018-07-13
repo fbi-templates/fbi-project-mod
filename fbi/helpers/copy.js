@@ -5,7 +5,7 @@ const logger = require('./logger')
 
 module.exports = async (src, dist, opts) => {
   const others = await globby('**', {
-    cwd: path.join(process.cwd(), src),
+    cwd: path.join(ctx.cwd, src),
     dot: true,
     nodir: true,
     ignore: ['**/*.js', '.DS_Store', 'configs/pm2-*.json']
@@ -33,7 +33,7 @@ module.exports = async (src, dist, opts) => {
     const pkgDistPath = path.join(dist, 'package.json')
     const pkgsExist = await fs.pathExists(pkgPath)
     if (pkgsExist) {
-      const pkg = require(path.join(process.cwd(), pkgPath))
+      const pkg = require(path.join(ctx.cwd, pkgPath))
       delete pkg.devDependencies
       await fs.outputJson(pkgDistPath, pkg, {
         spaces: '  '

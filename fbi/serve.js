@@ -5,6 +5,8 @@ const watch = require('./helpers/watch')
 const server = require('./helpers/server')
 const options = ctx ? ctx.options : require('./options')
 
+ctx.cwd = process.cwd().replace(/\\/g, '/')
+
 let watchOnly
 try {
   if (ctx) {

@@ -18,14 +18,14 @@ module.exports = (options, dist, cb, logger) => {
     .on('unlink', async file => {
       logger.log('Deleted:', file)
       await fs.remove(
-        path.join(process.cwd(), dist, file.replace(options.src, ''))
+        path.join(ctx.cwd, dist, file.replace(options.src, ''))
       )
       cb(null, null, true)
     })
     .on('unlinkDir', async dir => {
       logger.log('Deleted:', dir)
       await fs.remove(
-        path.join(process.cwd(), dist, dir.replace(options.src, ''))
+        path.join(ctx.cwd, dist, dir.replace(options.src, ''))
       )
       cb(null, null, true)
     })
