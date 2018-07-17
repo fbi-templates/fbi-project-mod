@@ -121,15 +121,4 @@ check out [fbi-task-pack](https://github.com/fbi-templates/fbi-task-pack)
 
 [MIT](https://opensource.org/licenses/MIT)
 
-## Changelog
-
-- **4.0.0** (2018.07.10)
-
-  - Refactoring compilation scheme
-
-- **2.0.5** (2017.12.09)
-
-  - Add `.editorconfig`
-
-- **2.0.0** (2017.12.07)
-  - Improvements: build performance, use of configuration
+## [Changelog](https://github.com/fbi-templates/fbi-task-commit/blob/master/CHANGELOG.md)
