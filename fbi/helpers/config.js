@@ -95,7 +95,7 @@ async function generateConfig (opts, files) {
         ...outputOptions,
         file: distFile
       },
-      external: id => !new RegExp(entryRelativePath + '$').test(id)
+      external: id => !new RegExp(entryRelativePath.replace(/\\/g, '/') + '$').test(id.replace(/\\/g, '/'))
     }
   })
 }
