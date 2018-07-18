@@ -8,6 +8,7 @@ const pluginBuble = require('rollup-plugin-buble')
 const pluginReplace = require('rollup-plugin-replace')
 const pluginResolve = require('rollup-plugin-node-resolve')
 const pluginTerser = require('rollup-plugin-terser')
+const logger = require('./logger')
 
 const noop = function () {}
 
