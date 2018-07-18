@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.0.6"></a>
+## [4.0.6](https://github.com/fbi-templates/fbi-project-mod/compare/v4.0.5...v4.0.6) (2018-07-18)
+
+
+### Bug Fixes
+
+* **config:** fix 'logger is not defined' in 'fbi/helpers/config.js' ([072da40](https://github.com/fbi-templates/fbi-project-mod/commit/072da40))
+
+
+
 <a name="4.0.5"></a>
 ## [4.0.5](https://github.com/fbi-templates/fbi-project-mod/compare/v4.0.4...v4.0.5) (2018-07-18)
 
