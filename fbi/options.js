@@ -18,7 +18,8 @@ module.exports = {
     ignore: ['.git', 'node_modules', 'test', 'fbi'],
     env: {
       NODE_ENV: 'development'
-    }
+    },
+    inspect: true
   },
 
   // Docs: https://rollupjs.org/#rollup-rollup
@@ -71,6 +72,10 @@ module.exports = {
   copy: {
     'package.json': true,
     node_modules: false
+  },
+
+  watcher: {
+    ignore: ['src/configs/pm2-*.json']
   },
 
   // https://github.com/rollup/rollup-plugin-alias

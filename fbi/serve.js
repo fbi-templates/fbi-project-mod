@@ -1,3 +1,5 @@
+const path = require('path')
+const fs = require('fs-extra')
 const logger = require('./helpers/logger')
 const copy = require('./helpers/copy')
 const clean = require('./helpers/clean')
@@ -6,17 +8,6 @@ const server = require('./helpers/server')
 const options = ctx ? ctx.options : require('./options')
 
 ctx.cwd = process.cwd().replace(/\\/g, '/')
-
-let watchOnly
-try {
-  if (ctx) {
-    const taskParams = ctx.task.getParams('serve')
-    watchOnly = Object.keys(taskParams).length > 0
-  }
-} catch (err) {
-  watchOnly = process.argv.slice(2).length > 0
-}
-
 process.env.BUILD_ENV = 'dev'
 process.env.BUILD_DIST = `${options.dist}`
 logger.log('Environment:', process.env.BUILD_ENV)
@@ -39,13 +30,30 @@ async function serve () {
     await copy(options.src, process.env.BUILD_DIST, options)
     logger.info('Copy done!')
 
-    // VSCode debug
-    if (!watchOnly) {
-      await server(options, process.env.BUILD_DIST, logger)
-    }
+    await server.start(options, process.env.BUILD_DIST, logger)
 
     logger.log('Start watching...')
-    watch(options, process.env.BUILD_DIST, complie, logger)
+    watch(
+      options,
+      process.env.BUILD_DIST,
+      async (file, restart) => {
+        if (file) {
+          if (path.extname(file) === '.js') {
+            await complie(options, file)
+          } else {
+            console.log(path.basename(file))
+            await fs.copy(
+              file,
+              path.join(options.dist, file.replace(options.src, ''))
+            )
+          }
+        }
+        if (restart) {
+          server.restart()
+        }
+      },
+      logger
+    )
   } catch (err) {
     console.error(err)
     logger.error(err)

@@ -1,11 +1,12 @@
-import * as utils from '../helpers/utils.js'
-
 import baseConfig from './base.js'
 
-const config = utils.deepMerge(baseConfig, {
+const config = {
   server: {
     port: 4000
   }
-})
+}
 
-export default config
+export default {
+  ...baseConfig,
+  ...config
+}

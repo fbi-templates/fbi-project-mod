@@ -1,6 +1,6 @@
 {
   "apps": [{
-    "name": "app",
+    "name": "app-test",
     "cwd": "./",
     "script": "index.js",
     "watch": false,

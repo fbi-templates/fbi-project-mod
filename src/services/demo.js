@@ -1,4 +1,4 @@
-async function msg (str) {
+async function msg(str) {
   return `Hello from ${str}`
 }
 

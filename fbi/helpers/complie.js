@@ -1,13 +1,17 @@
 const rollup = require('rollup')
-const nodemon = require('nodemon')
 const logger = require('./logger')
-const generateRollupConfig = require('./config')
+const generateConfig = require('./config')
 
 async function complier (configs) {
   return Promise.all(
     configs.map(async config => {
       const bundle = await rollup.rollup(config)
+      // console.log(bundle)
+
+      const { code, map } = await bundle.generate(config.output)
+      // console.log(code, map)
       await bundle.write(config.output)
+
       logger.log(
         'compile:',
         config.input.replace(ctx.cwd + '/', ''),
@@ -19,10 +23,8 @@ async function complier (configs) {
 }
 
 module.exports = async (options, _file, restart) => {
-  const configs = await generateRollupConfig(options, _file)
-  await complier(configs)
-
-  if (restart) {
-    nodemon.restart()
+  if (options) {
+    const configs = await generateConfig(options, _file)
+    await complier(configs)
   }
 }

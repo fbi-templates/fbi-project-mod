@@ -1,6 +1,6 @@
 /**
  * `FBI_ENV` will be replaced with follows when compiled:
- * 
+ *
  * `fbi b -dev` : FBI_ENV=dev
  * `fbi b -test`: FBI_ENV=test
  * `fbi b -prod`: FBI_ENV=prod

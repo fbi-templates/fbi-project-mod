@@ -1,7 +1,8 @@
 import Koa from 'koa'
-import configs from './configs'
-import errorHandler from './middlewares/errorHandler'
 import logger from 'koa-logger'
+import bodyparser from 'koa-bodyparser'
+import configs from './configs'
+import errorHandler from './middlewares/error-handler'
 import routes from './routes/index'
 
 const app = new Koa()
@@ -9,6 +10,7 @@ const app = new Koa()
 // Log & Error hander
 app.use(logger())
 app.use(errorHandler())
+app.use(bodyparser())
 
 const router = routes()
 app.use(router.routes()).use(

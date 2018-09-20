@@ -1,4 +1,4 @@
-import {STATUS_CODES} from 'http'
+import { STATUS_CODES } from 'http'
 
 export default () => {
   return async (ctx, next) => {
@@ -9,7 +9,7 @@ export default () => {
       ctx.status = ctx.status || 500
       ctx.type = 'application/json'
       ctx.body = {
-        code: STATUS_CODES[ctx.status],
+        code: -1,
         message: err.message
       }
     }
