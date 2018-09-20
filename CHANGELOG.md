@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.0"></a>
+# [4.1.0](https://github.com/fbi-templates/fbi-project-mod/compare/v4.0.6...v4.1.0) (2018-09-20)
+
+
+### Features
+
+* **examples:** add more examples ([804842d](https://github.com/fbi-templates/fbi-project-mod/commit/804842d))
+
+
+
 <a name="4.0.6"></a>
 ## [4.0.6](https://github.com/fbi-templates/fbi-project-mod/compare/v4.0.5...v4.0.6) (2018-07-18)
 
