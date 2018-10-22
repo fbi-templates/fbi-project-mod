@@ -33,7 +33,10 @@ const tsconfig = deepmerge(userTsconfig, {
     baseUrl,
     paths: {
       '*': typesPaths
-    }
+    },
+    typeRoots: modulesPaths
+      .map(p => path.join(p, '@types'))
+      .concat(['src/types'])
   },
   include: [`${baseUrl}/**/*`],
   pretty: true

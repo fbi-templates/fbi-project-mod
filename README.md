@@ -10,12 +10,13 @@ Node service or application template base on Koa 2.
 
 ## Requirements
 
-- `fbi v3.0+`
-- `node v7.6+`
+- **`fbi v3.2.0+`**
+  > `fbi v3.2.0+` support branch version. [more](https://github.com/AlloyTeam/fbi/blob/master/CHANGELOG.md#320-2018-10-22)
+- `node v8.2.1+`
 
 ## Features
 
-- ESLint
+- TSLint
 - ES modules
 - Environment data config
 - Local development server using [nodemon](https://github.com/remy/nodemon)
@@ -33,7 +34,7 @@ Node service or application template base on Koa 2.
 
    ```bash
    $ cd path/to/empty-folder
-   $ fbi init -o mod
+   $ fbi init -o mod@ts
 
    # or
    $ fbi init -o mod my-app
@@ -68,30 +69,12 @@ Node service or application template base on Koa 2.
   $ fbi up mod
   ```
 
-- **Update project**
-
-  ```bash
-  $ cd path/to/my-app
-  $ fbi use vx.x.x  # use `fbi ls store` to check versions
-  ```
-
 - **Update options**
 
   ```bash
   $ cd path/to/my-app
   $ fbi init -o
   ```
-
-## tsconfig
-
-```bash
-baseUrl: src
-typesPaths: [
-  '../node_modules/@types/*',
-  '../../../../../.fbi/fbi-project-mod/node_modules/@types/*',
-  'types/*'
-]
-```
 
 ## Run the project in a production environment
 
@@ -104,12 +87,9 @@ $ npm start
 ### `serve`
 
 - Description: Compile and start development server.
-- Params:
-  - `d` `{Boolean}` 'watch only' mode.
 - Alias: `s`
 - Examples:
   - `fbi s`
-  - `fbi s -d`
 
 ### `build`
 

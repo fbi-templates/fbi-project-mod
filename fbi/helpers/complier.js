@@ -16,7 +16,9 @@ module.exports = async () => {
   )
 
   try {
-    await ctx.utils.exec(`${tsc} --build ${configPath}`)
+    await ctx.utils.exec(`${tsc} --build ${configPath}`, {
+      stdio: 'inherit'
+    })
   } catch (err) {
     throw err
   }

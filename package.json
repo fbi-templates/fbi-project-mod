@@ -3,8 +3,8 @@
   "version": "5.0.0",
   "description": "Node service or application template base on Koa 2. (typescript)",
   "engines": {
-    "node": ">=6.9.1",
-    "npm": ">= 3.10.0"
+    "node": ">=8.2.1",
+    "npm": ">=5.0.0"
   },
   "scripts": {
     "start": "pm2 start pm2.json"
