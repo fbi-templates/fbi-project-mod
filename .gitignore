@@ -3,6 +3,8 @@
 /dist-*/
 .DS_Store
 .deps
+.rpt2_cache
+.tmp
 
 # Logs
 logs

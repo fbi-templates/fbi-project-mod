@@ -1,7 +1,9 @@
+import * as Router from 'koa-router'
 import ApiRouter from './api'
-import Router from 'koa-router'
 
 class AppRouter {
+  router: Router
+
   constructor() {
     this.router = new Router()
     this.api()
@@ -12,7 +14,6 @@ class AppRouter {
   }
 }
 
-export default () => {
-  const appRouter = new AppRouter()
-  return appRouter.router
-}
+const appRouter = new AppRouter()
+
+export default appRouter.router

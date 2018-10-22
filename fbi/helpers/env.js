@@ -1,13 +1,13 @@
 module.exports = name => {
-  const def = name === 'build' ? 'prod' : 'dev'
+  const def = name === 'build' ? 'production' : 'development'
   try {
     const taskParams = ctx.task.getParams(name)
     if (taskParams) {
       return taskParams.t || taskParams.test
-        ? 'test'
+        ? 'testing'
         : taskParams.p || taskParams.prod
-            ? 'prod'
-            : taskParams.d || taskParams.dev ? 'dev' : def
+            ? 'production'
+            : taskParams.d || taskParams.dev ? 'development' : def
     } else {
       return ''
     }

@@ -1,4 +1,4 @@
-# fbi-project-mod
+# fbi-project-mod (typescript)
 
 Node service or application template base on Koa 2.
 
@@ -82,10 +82,15 @@ Node service or application template base on Koa 2.
   $ fbi init -o
   ```
 
-## Test
+## tsconfig
 
 ```bash
-$ curl -i http://localhost:3000/api/demo
+baseUrl: src
+typesPaths: [
+  '../node_modules/@types/*',
+  '../../../../../.fbi/fbi-project-mod/node_modules/@types/*',
+  'types/*'
+]
 ```
 
 ## Run the project in a production environment

@@ -28,18 +28,15 @@ function processHandler () {
 function start (options, dist, logger) {
   return new Promise((resolve, reject) => {
     processHandler()
-    options.server.ignore = options.server.ignore || []
-    options.server.script = path.join(dist, options.server.script)
-    options.server.ignore.push(options.src)
+    const startScript = path.join(__dirname, '../scripts/start')
 
-    if (options.server.inspect) {
-      options.server['exec'] = `node --inspect`
-    } else {
-      options.server['watch'] = false
-      delete options.server['exec']
-    }
-
-    nodemon(options.server)
+    nodemon({
+      watch: ['src'],
+      ext: 'ts js',
+      verbose: true, // for debug purpose only
+      ignore: ['.git', 'node_modules', 'test', 'fbi'],
+      exec: `node --inspect ${startScript}`
+    })
 
     nodemon
       .on('start', () => {

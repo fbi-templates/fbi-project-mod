@@ -8,7 +8,11 @@ module.exports = async (src, dist, opts) => {
     cwd: path.join(ctx.cwd, src),
     dot: true,
     nodir: true,
-    ignore: ['**/*.js', '.DS_Store', 'configs/pm2-*.json']
+    ignore: opts.copy.ignore || [
+      '**/*.{js,ts}',
+      '.DS_Store',
+      'configs/pm2-*.json'
+    ]
   })
 
   await Promise.all(
@@ -19,7 +23,7 @@ module.exports = async (src, dist, opts) => {
   )
 
   // env config file
-  const configPath = path.join(src, `configs/pm2-${process.env.BUILD_ENV}.json`)
+  const configPath = path.join(src, `configs/pm2-${process.env.NODE_ENV}.json`)
   const configDistPath = path.join(dist, 'pm2.json')
   const configsExist = await fs.pathExists(configPath)
   if (configsExist) {
