@@ -1,4 +1,4 @@
 export const config = {
-  jwtSecret: 'xxx',
-  debugLogging: true
+  debugLogging: true,
+  graphqlPrefix: '/graphql'
 }

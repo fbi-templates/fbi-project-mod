@@ -1,4 +1,4 @@
-# fbi-project-mod (typescript)
+# fbi-project-mod (graphql)
 
 Node service or application template base on Koa 2.
 
@@ -33,11 +33,7 @@ Node service or application template base on Koa 2.
 1. **Create a project**
 
    ```bash
-   $ cd path/to/empty-folder
-   $ fbi init -o mod@ts
-
-   # or
-   $ fbi init -o mod my-app
+   $ fbi init -o mod@graphql [target-folder]
    ```
 
 1. **Show available tasks**
