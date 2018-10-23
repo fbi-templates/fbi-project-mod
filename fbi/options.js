@@ -2,6 +2,10 @@ module.exports = {
   src: 'src',
   dist: 'dist',
 
+  nodemon: {
+    inspect: false
+  },
+
   // file or directories to copy (Destination: 'dist')
   copy: {
     'package.json': true,

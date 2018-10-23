@@ -35,7 +35,7 @@ function start (options, dist, logger) {
       ext: 'ts js',
       verbose: true, // for debug purpose only
       ignore: ['.git', 'node_modules', 'test', 'fbi'],
-      exec: `node --inspect ${startScript}`
+      exec: `node ${options.nodemon.inspect ? '--inspect' : ''} ${startScript}`
     })
 
     nodemon

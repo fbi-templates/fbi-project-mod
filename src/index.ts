@@ -11,8 +11,9 @@ const init = async () => {
 
   const port = configs.server.port
   return app.listen({ port }, () => {
+    console.log()
     logger.info(
-      `\n🚀 Server ready at http://localhost:${port}${configs.graphqlPrefix}`
+      `🚀 Server ready at http://localhost:${port}${configs.graphqlPrefix}`
     )
   })
 }
