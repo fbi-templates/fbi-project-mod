@@ -1,6 +1,6 @@
 {
   "name": "fbi-project-mod",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Node service or application template base on Koa 2.",
   "engines": {
     "node": ">=6.9.1",

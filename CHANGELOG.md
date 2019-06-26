@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.2"></a>
+## [4.1.2](https://github.com/fbi-templates/fbi-project-mod/compare/v4.1.1...v4.1.2) (2019-06-26)
+
+
+### Bug Fixes
+
+* sort out package-lock.json ([05b9677](https://github.com/fbi-templates/fbi-project-mod/commit/05b9677))
+
+
+
 <a name="4.1.1"></a>
 ## [4.1.1](https://github.com/fbi-templates/fbi-project-mod/compare/v4.1.0...v4.1.1) (2018-09-29)
 
