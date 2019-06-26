@@ -10,7 +10,7 @@
     "start": "pm2 start pm2.json"
   },
   "dependencies": {
-    "koa": "^2.5.3",
+    "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",

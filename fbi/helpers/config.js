@@ -88,8 +88,12 @@ async function generateConfig (opts, files) {
   }
 
   let entryFiles = files
-    ? Array.isArray(files) ? files : [files]
-    : await globby(path.join(ctx.cwd, opts.src, '**/*.js'))
+    ? Array.isArray(files)
+      ? files
+      : [files]
+    : (await globby('**/*.js', {
+      cwd: path.join(ctx.cwd, opts.src)
+    })).map(item => path.join(ctx.cwd, opts.src, item))
 
   return entryFiles.map(entry => {
     const distFile = path.join(
@@ -106,9 +110,7 @@ async function generateConfig (opts, files) {
       },
       external: id =>
         id !== '\0async-runtime' &&
-        !new RegExp(entryRelativePath.replace(/\\/g, '/') + '$').test(
-          id.replace(/\\/g, '/')
-        )
+        !new RegExp(entryRelativePath.replace(/\\/g, '/') + '$').test(id.replace(/\\/g, '/'))
     }
   })
 }
