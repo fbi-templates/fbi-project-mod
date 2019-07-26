@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.1.3"></a>
+## [4.1.3](https://github.com/fbi-templates/fbi-project-mod/compare/v4.1.2...v4.1.3) (2019-07-26)
+
+
+### Bug Fixes
+
+* Fixed compatible problem on windows system about path separator. ([76bd114](https://github.com/fbi-templates/fbi-project-mod/commit/76bd114))
+
+
+
 <a name="4.1.2"></a>
 ## [4.1.2](https://github.com/fbi-templates/fbi-project-mod/compare/v4.1.1...v4.1.2) (2019-06-26)
 
