@@ -96,14 +96,16 @@ async function generateConfig (opts, files) {
     })).map(item => path.join(ctx.cwd, opts.src, item))
 
   return entryFiles.map(entry => {
+    // The path separator of Windows System is '\', it should be replace to '/'
+    let entry2 = entry.replace(/\\/g, '/')
     const distFile = path.join(
       process.env.BUILD_DIST || 'dist',
-      entry.replace(ctx.cwd, '').replace(opts.src, '')
+      entry2.replace(ctx.cwd, '').replace(opts.src, '')
     )
-    const entryRelativePath = entry.replace(ctx.cwd, '')
+    const entryRelativePath = entry2.replace(ctx.cwd, '')
     return {
       ...inputOptions,
-      input: entry,
+      input: entry2,
       output: {
         ...outputOptions,
         file: distFile
